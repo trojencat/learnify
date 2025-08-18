@@ -20,7 +20,13 @@ const dropdownVariants = {
 };
 
 // --- Reusable Dropdown Component ---
-const DropdownItem = ({ title, children }) => {
+const DropdownItem = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div
@@ -49,7 +55,7 @@ const DropdownItem = ({ title, children }) => {
     </div>
   );
 };
-const DropdownLink = ({ text, href }) => (
+const DropdownLink = ({ text, href }: { text: String; href: string }) => (
   <motion.a
     href={href}
     variants={dropdownItemVariants}
@@ -63,11 +69,6 @@ const DropdownLink = ({ text, href }) => (
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -87,7 +88,7 @@ export default function Header() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       // `w-fit` makes the header intrinsically wrap its children.
-      className="fixed  top-4 left-1/2  h-16 -translate-x-1/2 rounded-4xl z-4 bg-white/60 backdrop-blur-lg border border-slate-200/70 shadow-xl shadow-black/5"
+     className="fixed  top-4 left-1/2  h-16 -translate-x-1/2 rounded-4xl z-50 bg-white/60 backdrop-blur-lg border border-slate-200/70 shadow-xl shadow-black/5"
     >
       <div className="flex items-center h-full px-8">
         {/* Logo and Motto */}
@@ -109,26 +110,49 @@ export default function Header() {
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: "60em", opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
-              transition={{duration: 0.5, ease: "easeInOut" }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
               // `overflow-hidden` and `whitespace-nowrap` are crucial for the smooth width animation.
               className="flex justify-end  w-fit items-center h-full gap-6  font-medium overflow-hidden whitespace-nowrap"
             >
-              <a href="#home" className="text-slate-600 hover:text-black transition-colors">Home</a>
+              <a
+                href="#home"
+                className="text-slate-600 hover:text-black transition-colors"
+              >
+                Home
+              </a>
               <DropdownItem title="Services">
                 <DropdownLink href="#career-tests" text="Career Tests" />
                 <DropdownLink href="#counselling" text="Counselling" />
               </DropdownItem>
-              <a href="#courses" className="text-slate-600 hover:text-black transition-colors">Courses</a>
+              <a
+                href="#courses"
+                className="text-slate-600 hover:text-black transition-colors"
+              >
+                Courses
+              </a>
               <DropdownItem title="Resources">
                 <DropdownLink href="#blogs" text="Blogs & Articles" />
                 <DropdownLink href="#guides" text="Career Guides" />
                 <DropdownLink href="#success" text="Success Stories" />
               </DropdownItem>
-              <a href="#contact" className="text-slate-600 hover:text-black transition-colors">Contact Us</a>
-              <a href="#contact" className="text-slate-600 hover:text-black transition-colors font-semibold">Speak to a Counseller</a>
-              <a href="#contact" className="text-white rounded-4xl px-2 py-1 hover:text-black transition-colors font-bold bg-gradient-to-r from-blue-600 to-indigo-400">Take test</a>
-             
-             
+              <a
+                href="#contact"
+                className="text-slate-600 hover:text-black transition-colors"
+              >
+                Contact Us
+              </a>
+              <a
+                href="#contact"
+                className="text-slate-600 hover:text-black transition-colors font-semibold"
+              >
+                Speak to a Counseller
+              </a>
+              <a
+                href="#contact"
+                className="text-white rounded-4xl px-2 py-1 hover:text-black transition-colors font-bold bg-gradient-to-r from-blue-600 to-indigo-400"
+              >
+                Take test
+              </a>
             </motion.nav>
           )}
         </AnimatePresence>
