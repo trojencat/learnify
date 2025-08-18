@@ -46,7 +46,7 @@ const DropdownItem = ({
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute z-30 top-full -mt-3 ml-2 w-max origin-top-left rounded-xl bg-white/70 p-2 backdrop-blur-lg border border-slate-200/70 shadow-xl shadow-black/5"
+            className="absolute z-30 top-full -mt-3 ml-2 w-max origin-top-left rounded-xl bg-white/60 p-2 backdrop-blur-2xl   shadow-xl shadow-black/5"
           >
             {children}
           </motion.div>
@@ -88,7 +88,7 @@ export default function Header() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       // `w-fit` makes the header intrinsically wrap its children.
-     className="fixed  top-4 left-1/2  h-16 -translate-x-1/2 rounded-4xl z-50 bg-white/60 backdrop-blur-lg border border-slate-200/70 shadow-xl shadow-black/5"
+      className="fixed  top-4 left-1/2  h-16 -translate-x-1/2 rounded-4xl z-50 bg-white/50 backdrop-blur-md shadow-xl"
     >
       <div className="flex items-center h-full px-8">
         {/* Logo and Motto */}
@@ -110,7 +110,7 @@ export default function Header() {
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: "60em", opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
               // `overflow-hidden` and `whitespace-nowrap` are crucial for the smooth width animation.
               className="flex justify-end  w-fit items-center h-full gap-6  font-medium overflow-hidden whitespace-nowrap"
             >
