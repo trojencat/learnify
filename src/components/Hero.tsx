@@ -30,8 +30,8 @@ const Banner = () => {
     <section className="relative h-full w-full flex flex-col md:flex-row items-center justify-between p-10 bg-cover mx-auto my-0 rounded-lg overflow-hidden shadow-2xl">
       {/* Background waves */}
       <Waves
-        lineColor="#ccc"
-        backgroundColor="rgba(0, 0, 0, 0.1)"
+        lineColor="#eee"
+        backgroundColor="rgba(0, 0, 0, 0)"
         waveSpeedX={-0.03}
         waveSpeedY={0.04}
         waveAmpX={40}
@@ -42,9 +42,9 @@ const Banner = () => {
         xGap={12}
         yGap={36}
       />
-      <div className="flex flex-row justify-center items-center w-full mx-[10em] h-full">
+      <div className="flex flex-row justify-between items-center w-full px-[10em] h-full">
         {/* Text content on the left */}
-         <div className="z-10 max-w-xl w-2/3 text-center md:text-left md:mr-12">
+         <div className="z-10 max-w-xl w-2/3 text-left ml-automd:text-left md:mr-12">
       {/* Heading with GSAP typewriter */}
       <h1
         ref={headingRef}
