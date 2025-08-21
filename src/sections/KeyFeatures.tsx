@@ -86,7 +86,7 @@ const KeyFeatures = () => {
               // Scroll-triggered animation
               initial="offscreen"
               whileInView="onscreen"
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={{ once: true, amount: 0.1 }}
               variants={cardVariants}
               // Hover-triggered animation controller
               whileHover="hover" // This tells children to animate to their "hover" state
