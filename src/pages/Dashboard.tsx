@@ -3,19 +3,26 @@ import Hero from "../components/Hero";
 import KeyFeatures from "../sections/KeyFeatures";
 import Timeline from "../sections/Timeline";
 import Courses from "../sections/Courses";
+import TestimonialsSection from "../sections/Testimonials";
+import FeedbackSection from "../sections/Feedback";
+import Footer from "./Footer";
 const Dashboard = () => {
   return (
     <div className="dashboard">
       <Topbar />
       <div id="hero" className="h-screen w-full">
-        <Hero/>
+        <Hero />
       </div>
       <KeyFeatures />
       <div className="bg-gradient-to-r from-transparent via-stone-700 to-transparent h-[0.5px] mt-5 "></div>
-      <Timeline/>
-      <div className="bg-gradient-to-r from-transparent via-stone-700 to-transparent h-[1px]  mb-5 "></div>
+      <Timeline />
+      <div className="bg-gradient-to-r from-transparent via-stone-700 to-transparent h-[1px]   "></div>
       <Courses />
-      <div className="h-screen"></div>
+      <TestimonialsSection />
+      <div className="bg-gradient-to-r from-transparent via-stone-700 to-transparent h-[1px]   "></div>
+      <FeedbackSection />
+      <div className="bg-gradient-to-r from-transparent via-stone-700 to-transparent h-[1px]   "></div>
+      <Footer/>
     </div>
   );
 };

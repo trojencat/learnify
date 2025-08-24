@@ -1,30 +1,53 @@
-import {useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Dummy payment gateway handler
-const handlePayment = (plan : string) => {
+const handlePayment = (plan: string) => {
   alert(`Initiating payment gateway for: ${plan}`);
 };
 
 export default () => {
   const titleRef = useRef(null);
-  const cardsRef = useRef<[HTMLDivElement] | []>([]);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
-    gsap.from(titleRef.current, {
-      opacity: 0,
-      y: -30,
-      duration: 1,
-      ease: "power3.out",
-    });
-    gsap.from(cardsRef.current, {
-      opacity: 0,
-      y: 40,
-      duration: 1,
-      stagger: 0.3,
-      ease: "power3.out",
-      delay: 0.4,
-    });
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Title animation
+    gsap.fromTo(
+      titleRef.current,
+      { opacity: 0, y: -30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%", // when title is 80% down the viewport
+          once: true,
+        },
+      }
+    );
+
+    // Cards animation
+    gsap.fromTo(
+      cardsRef.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: cardsRef.current[0]?.parentElement, // wrapper div
+          start: "top 85%",
+          once: true,
+        },
+      }
+    );
   }, []);
 
   const plans = [
@@ -63,7 +86,7 @@ export default () => {
         <div className="grid w-full md:grid-cols-3 gap-8">
           {plans.map((plan, i) => (
             <div
-              ref={(el:any) => (cardsRef.current[i] = el)}
+              ref={(el: any) => (cardsRef.current[i] = el)}
               key={plan.title}
               className={`relative group rounded-2xl shadow-2xl border border-white/20 overflow-hidden bg-white/10 backdrop-blur-md px-8 py-12 flex flex-col items-center transition-all duration-300
                 ${
@@ -73,7 +96,7 @@ export default () => {
                 }`}
             >
               {plan.highlight && (
-                <span className="absolute top-4 right-4 bg-yellow-400 text-blue-800 text-xs px-3 py-1 rounded-full font-bold shadow-md opacity-90">
+                <span className="absolute  top-4 right-4 bg-yellow-400 text-blue-800 text-xs px-3 py-1 rounded-full font-bold shadow-md opacity-90">
                   Best Value
                 </span>
               )}
@@ -102,4 +125,3 @@ export default () => {
     </section>
   );
 };
-

@@ -141,9 +141,9 @@ export default () => {
             {/* --- Section Header --- */}
             <div className="relative text-center h-full flex flex-col my-auto  mr-16 ">
                 <div className="absolute -z-50 bg-stone-200/20  transition duration-300 ease-in-out h-full w-full scale-y-[800%] scale-x-[140%] rotate-12"></div>
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <p className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                 How it <span className="bg-gradient-to-r from-blue-600 to-indigo-700 text-transparent bg-clip-text">works?</span>
-              </h2>
+              </p>
               <p className="mt-4 text-lg leading-8 text-gray-600">
                 Follow these steps to unlock your career potential.
               </p>
