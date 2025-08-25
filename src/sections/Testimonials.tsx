@@ -138,7 +138,7 @@ export default function Testimonials() {
               {row1.map((t, i) => (
                 <div
                   key={`r1-${t.name}-${i}`}
-                  ref={(el) => el && (row1Refs.current[i] = el)}
+                  ref={(el : any) => el && (row1Refs.current[i] = el)}
                   className="rounded-2xl bg-white border border-gray-200 shadow-lg shadow-gray-900/5 p-6 md:p-7 flex flex-col will-change-transform"
                 >
                   <blockquote className="text-gray-800 text-lg leading-relaxed">
@@ -164,7 +164,7 @@ export default function Testimonials() {
               {row2.map((t, i) => (
                 <div
                   key={`r2-${t.name}-${i}`}
-                  ref={(el) => el && (row2Refs.current[i] = el)}
+                  ref={(el : any) => el && (row2Refs.current[i] = el)}
                   className="rounded-2xl bg-white border border-gray-200 shadow-lg shadow-gray-900/5 p-6 md:p-7 flex flex-col will-change-transform"
                 >
                   <blockquote className="text-gray-800 text-lg leading-relaxed">
