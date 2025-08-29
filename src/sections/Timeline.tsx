@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { useEffect, useRef } from "react";
+import { VerticalTimeline } from "../components/VerticalTimeline";
 
 
 // --- Timeline Step Component ---
@@ -137,9 +138,9 @@ export default () => {
   return (<div className="overflow-hidden py-16 group ">
       
         <div className=" sm:py-28 my-5 " ref={containerRef}>
-          <div className="flex flex-row px-64 m-3 justify-around ">
+          <div className="flex md:flex-row flex-col md:px-64 m-3 justify-around ">
             {/* --- Section Header --- */}
-            <div className="relative text-center h-full flex flex-col my-auto  mr-16 ">
+            <div className="relative text-center h-full flex flex-col my-auto  md:mr-16 ">
                 <div className="absolute -z-50 bg-stone-200/20  transition duration-300 ease-in-out h-full w-full scale-y-[800%] scale-x-[140%] rotate-12"></div>
               <p className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
                 How it <span className="bg-gradient-to-r from-blue-600 to-indigo-700 text-transparent bg-clip-text">works?</span>
@@ -149,14 +150,14 @@ export default () => {
               </p>
             </div>
             {/* --- Timeline Container --- */}
-            <div className="relative flex-grow">
+            <div className="relative flex-grow hidden md:block ">
               {/* The main horizontal line (for desktop) */}
               <div
-                className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-indigo-200 rounded-full"
+                className="md:block absolute top-1/2 left-0 w-full h-1 bg-indigo-200 rounded-full"
                 ref={lineRef}
               ></div>
               {/* Checkpoints */}
-              <div className="relative flex flex-col  justify-end top-1/2 -translate-y-1/2 md:flex-row  items-start md:items-center ">
+              <div className="relative flex flex-col  md:flex-row justify-end top-1/2 -translate-y-1/2   items-center ">
                 {timelineData.map((item, index) => (
                   <TimelineStep
                     key={item.step}
@@ -170,6 +171,9 @@ export default () => {
                 ))}
               </div>
             </div>
+             <div className="relative flex-grow block md:hidden">
+            <VerticalTimeline data={timelineData} />
+          </div>
           </div>
         </div>
   </div>

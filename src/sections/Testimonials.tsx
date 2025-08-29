@@ -118,10 +118,10 @@ export default function Testimonials() {
     <section className="w-full py-16 bg-white">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-10">
         {/* 2-column layout: left text, right cards */}
-        <div className="flex flex-row ">
+        <div className="flex md:flex-row flex-col ">
           {/* Left: centered text */}<div className="min-w-1/3 min-h-full flex items-center p-5">
             
-            <div className=" ">
+            <div className="text-center md:text-left">
               <p className="text-3xl md:text-4xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-indigo-600">
                 Don’t just take our words.
               </p>
@@ -132,9 +132,9 @@ export default function Testimonials() {
           </div>
 
           {/* Right: 2x2 grid of cards */}
-          <div className="md:col-span-2 grid grid-rows-2 gap-6 md:gap-8 w">
+          <div className="md:col-span-2 grid grid-rows-2 gap-1 md:gap-8 ">
             {/* Row 1 */}
-            <div ref={row1WrapRef} className="grid grid-cols-1 sm:grid-cols-2 gap-[-1px] md:gap-[-1px]">
+            <div ref={row1WrapRef} className="grid grid-cols-1 sm:grid-cols-2 gap-1  md:gap-[-1px]">
               {row1.map((t, i) => (
                 <div
                   key={`r1-${t.name}-${i}`}

@@ -8,7 +8,7 @@ import FeedbackSection from "../sections/Feedback";
 import Footer from "./Footer";
 const Dashboard = () => {
   return (
-    <div className="dashboard">
+    <div className="dashboard overflow-clip">
       <Topbar />
       <div id="hero" className="h-screen w-full">
         <Hero />
