@@ -7,7 +7,7 @@ const handlePayment = (plan: string) => {
   alert(`Initiating payment gateway for: ${plan}`);
 };
 
-export default () => {
+const Courses =   () => {
   const titleRef = useRef(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
@@ -125,3 +125,5 @@ export default () => {
     </section>
   );
 };
+
+export default Courses;

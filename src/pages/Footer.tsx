@@ -71,15 +71,15 @@ export default function Footer() {
             <p className="text-sm mb-3 text-gray-400">
               Subscribe to get our latest updates and resources.
             </p>
-            <form className="flex items-center bg-white/10 rounded-xl overflow-hidden">
+            <form className="flex items-center bg-white/10 rounded-xl w-fit  overflow-hidden">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-transparent text-gray-200 placeholder-gray-400 focus:outline-none"
+                className=" flex-1 px-4 py-3 bg-transparent text-gray-200 placeholder-gray-400 focus:outline-none"
               />
               <button
                 type="submit"
-                className="px-5 py-3 bg-blue-600 hover:bg-blue-500 transition text-white font-medium"
+                className="w-fit px-5 py-3 bg-blue-600 hover:bg-blue-500 transition text-white font-medium"
               >
                 Subscribe
               </button>

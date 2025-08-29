@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 type TimelineItem = {
   step: number;
@@ -20,7 +20,7 @@ export const VerticalTimeline = ({ data }: { data: TimelineItem[] }) => {
     }
   };
 
-  useEffect(() => {
+  const initFunc = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
@@ -51,29 +51,39 @@ export const VerticalTimeline = ({ data }: { data: TimelineItem[] }) => {
     });
 
     return () => tl.kill();
+  };
+  useEffect(() => {
+    initFunc();
   }, []);
 
   return (
     <div ref={containerRef} className="relative">
       {/* vertical line */}
-      <div ref={lineRef} className="absolute left-6 top-0 h-full w-1 bg-indigo-200 rounded-full" />
+      <div
+        ref={lineRef}
+        className="absolute left-1/2 top-0 h-full w-1 bg-indigo-200 rounded-full"
+      />
 
-      <div className="flex flex-col gap-8">
-        {data.map((item, index) => (
-          <div key={item.step} className="relative pl-16">
+      <div className="flex flex-col gap-8 mt-5 justify-center items-center">
+        {data.map((item) => (
+          <div key={item.step} className="relative ">
             {/* checkpoint */}
-            <div className="absolute left-0 top-0 w-12 h-12 bg-white rounded-full border-4 border-indigo-500 flex items-center justify-center">
+            <div className="absolute left-1/2 top-0 w-12 h-12 -translate-x-1/2 bg-white rounded-full border-4 border-indigo-500 flex items-center justify-center">
               <div className="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">{item.step}</span>
+                <span className="text-white font-bold text-lg">
+                  {item.step}
+                </span>
               </div>
             </div>
 
             {/* content box */}
             <div
               ref={addToRefs}
-              className={`opacity-0 bg-white p-6 rounded-lg shadow-lg border border-gray-200`}
+              className={`  opacity-0 text-center backdrop-blur-xs p-6 w-fit  rounded-3xl shadow-lg border mt-16 border-gray-200`}
             >
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                {item.title}
+              </h3>
               <p className="text-sm text-gray-600">{item.description}</p>
             </div>
           </div>

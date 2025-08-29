@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, type Variant } from "framer-motion";
+import { motion, AnimatePresence, type AnimationGeneratorType } from "framer-motion";
 import { ChevronDown, MoreHorizontal, X } from "lucide-react"; // npm i lucide-react
 
 // --- Animation Variants ---
@@ -30,7 +30,7 @@ const sheetVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 300, damping: 28 },
+    transition: { type: "spring" as AnimationGeneratorType, stiffness: 300, damping: 28 },
   },
   exit: { opacity: 0, y: 10, scale: 0.98 },
 };

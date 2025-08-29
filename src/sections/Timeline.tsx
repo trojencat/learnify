@@ -65,7 +65,7 @@ const TimelineStep = ({
   );
 };
 
-export default () => {
+const Timeline  = () => {
   const timelineData = [
     {
       step: 1,
@@ -179,3 +179,5 @@ export default () => {
   </div>
   );
 };
+
+export default Timeline;
