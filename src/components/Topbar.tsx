@@ -48,7 +48,6 @@ const DropdownItem = ({
     <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
-      className="relative"
     >
       <button className="flex items-center gap-1.5 text-slate-600 hover:text-black transition-colors focus:outline-none">
         {title}
@@ -63,7 +62,7 @@ const DropdownItem = ({
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute z-30 top-full -mt-3 ml-2 w-max origin-top-left rounded-xl bg-white/60 p-2 backdrop-blur-2xl shadow-xl shadow-black/5"
+            className="absolute z-50 top-full -mt-3 ml-2 w-max origin-top-left rounded-xl bg-white/60 p-2 backdrop-blur-2xl shadow-xl shadow-black/5"
           >
             {children}
           </motion.div>
